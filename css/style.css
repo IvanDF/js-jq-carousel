@@ -48,11 +48,7 @@ body {
     left:100%;
     top:-35%;
     width:100%;
-    transition: left 1s .5s,
-                filter .5s;
-}
-.carousel-images img:hover {
-    filter: opacity(.8);
+    transition: left .5s 1s;
 }
 
 /* CAROUSEL BUTTONS */
@@ -110,7 +106,7 @@ body {
 
 img.active {
     left: 0;
-    transition: .5s;
+    transition: left .5s .5s;
 }
 
 .circle.active {
