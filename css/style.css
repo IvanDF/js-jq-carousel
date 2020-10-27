@@ -8,6 +8,7 @@
 body {
     width: 100%;
     height: 100vh;
+    background: #222;
 }
 
 /* UTILITIES */
@@ -28,10 +29,9 @@ body {
     padding: 50px 0;
     font-size: 28px;
     font-family: sans-serif;
-    background: #20e;
-    color: #fff;
+    background: #28205b;
+    color: #bbb0ff;
     text-align: center;
-    box-shadow: 1px 10px rgba(0, 0, 0, .5);
 }
 
 /* CAROUSEL */
@@ -44,17 +44,21 @@ body {
     height: 100%;
 }
 .carousel-images img {
-    display: none;
     position:absolute;
-    left:0;
+    left:100%;
     top:-35%;
     width:100%;
+    transition: left 1s .5s,
+                filter .5s;
+}
+.carousel-images img:hover {
+    filter: opacity(.8);
 }
 
 /* CAROUSEL BUTTONS */
 .carousel-images > .next,
 .carousel-images > .previous {
-    color: #20e;
+    color: #bbb0ff;
     z-index: 1;
     font-size: 30px;
     position: absolute;
@@ -65,12 +69,12 @@ body {
 
 .carousel-images > .next{
     right: -20px;
-    transition: right .5s .2s;
+    transition: right .5s .3s;
 }
 
 .carousel-images > .previous {
     left: -20px;
-    transition: left .5s .2s;
+    transition: left .5s .3s;
 }
 
 /* carousel circles slider */
@@ -87,16 +91,17 @@ body {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    border: solid 3px #20e;
+    border: solid 3px #bbb0ff;
     cursor: pointer;
     bottom: -25px;
     margin: 0 20px;
     transition: bottom .5s,
-                margin .7s;
+                margin .7s,
+                background .5s;
   }
 
 .carousel-control .circle:hover {
-    background: #20e;
+    background: #bbb0ff;
   }
 
 
@@ -104,11 +109,13 @@ body {
   /* JS UTILITIES */
 
 img.active {
-    display: block;
+    left: 0;
+    transition: .5s;
 }
 
-span.active {
-    background: #20e;
+.circle.active {
+    background: #bbb0ff;
+    transition: background .6s;
 }
 
 .circle.onhover {

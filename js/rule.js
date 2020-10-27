@@ -26,7 +26,7 @@
     //  ON HOVER ANMATION
     var carouselImgs = $('.carousel-images');
     var nav = $('.carousel-images i');
-    var circles = $('.carousel-control span');
+    var circles = $('.carousel-control .circle');
     
     carouselImgs.mouseenter( function () {
         nav.addClass('onhover')
@@ -46,7 +46,7 @@ function carouselNextPrev(nextPrev) {
 
     // SVARIABLES
     var activeImage = $('.carousel-images img.active');
-    var activeCircle = $('.carousel-control span.active');
+    var activeCircle = $('.carousel-control .circle.active');
 
     // REMOVE ACTIVE CLASS
     activeImage.removeClass('active');
@@ -56,10 +56,10 @@ function carouselNextPrev(nextPrev) {
     if (nextPrev === 'next') {
         if( activeImage.hasClass('last') ) {
             $('.carousel-images img.first').addClass('active');
-            $('.carousel-control span.first').addClass('active');
+            $('.carousel-control .circle.first').addClass('active');
         } else {
             activeImage.next('img').addClass('active');
-            activeCircle.next('span').addClass('active');
+            activeCircle.next('.circle').addClass('active');
         }
     }
 
@@ -67,10 +67,10 @@ function carouselNextPrev(nextPrev) {
     if (nextPrev === 'prev') {
         if( activeImage.hasClass('first') ) {
             $('.carousel-images img.last').addClass('active');
-            $('.carousel-control span.last').addClass('active');
+            $('.carousel-control .circle.last').addClass('active');
         } else {
             activeImage.prev('img').addClass('active');
-            activeCircle.prev('span').addClass('active');
+            activeCircle.prev('.circle').addClass('active');
         }
     }
 }
