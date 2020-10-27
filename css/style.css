@@ -48,7 +48,7 @@ body {
     left:100%;
     top:-35%;
     width:100%;
-    transition: left .5s 1s;
+    transition: left .5s .6s;
 }
 
 /* CAROUSEL BUTTONS */
@@ -106,7 +106,7 @@ body {
 
 img.active {
     left: 0;
-    transition: left .5s .5s;
+    transition: left .5s .1s;
 }
 
 .circle.active {
