@@ -1,20 +1,44 @@
 /*************
  * CAROUSEL
  ************/
-
  $( document ).ready( function() {
 
     // MOUSE CLICK
     $('.next').click( function() {
         carouselNextPrev('next')
-
     });
     $('.previous').click( function() {
         carouselNextPrev('prev')
-
     });
 
+    // KEYBOARD CLICK
+    $(document).keydown( function (keyborad) {
+        if( keyborad.keyCode == 39 ) {
+            // RIGT
+            carouselNextPrev('next')
+        } else if ( keyborad.keyCode == 37 ) {
+            // LEFT
+            carouselNextPrev('prev')
+        }
+    })
+
+    
+    //  ON HOVER ANMATION
+    var carouselImgs = $('.carousel-images');
+    var nav = $('.carousel-images i');
+    var circles = $('.carousel-control span');
+    
+    carouselImgs.mouseenter( function () {
+        nav.addClass('onhover')
+        circles.addClass('onhover')
+    });
+    
+    carouselImgs.mouseleave( function () {
+        nav.removeClass('onhover')
+        circles.removeClass('onhover')
+    });
  }); // END DOCUMENT READY
+
 
 
 // FUNCTIONS
@@ -30,13 +54,23 @@ function carouselNextPrev(nextPrev) {
 
     // NEXT
     if (nextPrev === 'next') {
-        activeImage.next('img').addClass('active')
-        activeCircle.next('span').addClass('active')
+        if( activeImage.hasClass('last') ) {
+            $('.carousel-images img.first').addClass('active');
+            $('.carousel-control span.first').addClass('active');
+        } else {
+            activeImage.next('img').addClass('active');
+            activeCircle.next('span').addClass('active');
+        }
     }
 
     // PREVIOUS
     if (nextPrev === 'prev') {
-        activeImage.prev('img').addClass('active')
-        activeCircle.prev('span').addClass('active')
+        if( activeImage.hasClass('first') ) {
+            $('.carousel-images img.last').addClass('active');
+            $('.carousel-control span.last').addClass('active');
+        } else {
+            activeImage.prev('img').addClass('active');
+            activeCircle.prev('span').addClass('active');
+        }
     }
 }

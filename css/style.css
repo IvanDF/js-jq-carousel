@@ -25,8 +25,13 @@ body {
     width: 100%;
 }
 .hero-title {
-    height: 200px;
-    background: #000;
+    padding: 50px 0;
+    font-size: 28px;
+    font-family: sans-serif;
+    background: #20e;
+    color: #fff;
+    text-align: center;
+    box-shadow: 1px 10px rgba(0, 0, 0, .5);
 }
 
 /* CAROUSEL */
@@ -49,7 +54,7 @@ body {
 /* CAROUSEL BUTTONS */
 .carousel-images > .next,
 .carousel-images > .previous {
-    color: red;
+    color: #20e;
     z-index: 1;
     font-size: 30px;
     position: absolute;
@@ -59,11 +64,13 @@ body {
 }
 
 .carousel-images > .next{
-    right: 50px;
+    right: -20px;
+    transition: right .5s .2s;
 }
 
 .carousel-images > .previous {
-    left: 50px;
+    left: -20px;
+    transition: left .5s .2s;
 }
 
 /* carousel circles slider */
@@ -75,12 +82,21 @@ body {
   }
 
 .carousel-control .circle {
+    position: relative;
     display: inline-block;
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    border: solid 3px red;
+    border: solid 3px #20e;
     cursor: pointer;
+    bottom: -25px;
+    margin: 0 20px;
+    transition: bottom .5s,
+                margin .7s;
+  }
+
+.carousel-control .circle:hover {
+    background: #20e;
   }
 
 
@@ -92,5 +108,18 @@ img.active {
 }
 
 span.active {
-    background: red;
+    background: #20e;
+}
+
+.circle.onhover {
+    bottom: 0;
+    margin: 0;
+}
+
+.carousel-images > .next.onhover{
+    right: 50px;
+}
+
+.carousel-images > .previous.onhover {
+    left: 50px;
 }
