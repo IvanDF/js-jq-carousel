@@ -1,7 +1,7 @@
 /*************
  * CAROUSEL
  ************/
- $( document ).ready( function() {
+$( document ).ready( function() {
 
     // MOUSE CLICK
     $('.next').click( function() {
@@ -20,33 +20,33 @@
             // LEFT
             carouselNextPrev('prev')
         }
-    })
+    });
 
-    
-    //  ON HOVER ANMATION
-    var carouselImgs = $('.carousel-images');
-    var nav = $('.carousel-images i');
-    var circles = $('.carousel-control .circle');
-    
-    carouselImgs.mouseenter( function () {
-        nav.addClass('onhover')
-        circles.addClass('onhover')
-    });
-    
-    carouselImgs.mouseleave( function () {
-        nav.removeClass('onhover')
-        circles.removeClass('onhover')
-    });
+    $('.carousel-nav .circle').click(function(){
+
+        // NAVIGATE WITH CAROUSEL NAV
+        var activeImage = $('.carousel-images img.active');
+        var activeCircle = $('.carousel-nav .circle.active');
+
+        // REMOVE ACTIVE CLASS
+        activeImage.removeClass('active');
+        activeCircle.removeClass('active');
+
+        var circle = $(this);
+        var index = circle.index();
+
+        circle.addClass('active');
+        $('.carousel-images img').eq(index).addClass('active')
+        
+    }); 
  }); // END DOCUMENT READY
-
-
 
 // FUNCTIONS
 function carouselNextPrev(nextPrev) {
 
-    // SVARIABLES
+    // VARIABLES
     var activeImage = $('.carousel-images img.active');
-    var activeCircle = $('.carousel-control .circle.active');
+    var activeCircle = $('.carousel-nav .circle.active');
 
     // REMOVE ACTIVE CLASS
     activeImage.removeClass('active');
@@ -56,7 +56,7 @@ function carouselNextPrev(nextPrev) {
     if (nextPrev === 'next') {
         if( activeImage.hasClass('last') ) {
             $('.carousel-images img.first').addClass('active');
-            $('.carousel-control .circle.first').addClass('active');
+            $('.carousel-nav .circle.first').addClass('active');
         } else {
             activeImage.next('img').addClass('active');
             activeCircle.next('.circle').addClass('active');
@@ -67,7 +67,7 @@ function carouselNextPrev(nextPrev) {
     if (nextPrev === 'prev') {
         if( activeImage.hasClass('first') ) {
             $('.carousel-images img.last').addClass('active');
-            $('.carousel-control .circle.last').addClass('active');
+            $('.carousel-nav .circle.last').addClass('active');
         } else {
             activeImage.prev('img').addClass('active');
             activeCircle.prev('.circle').addClass('active');
